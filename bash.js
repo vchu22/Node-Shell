@@ -1,5 +1,6 @@
 const pwd = require('./pwd.js');
 const ls = require('./ls.js');
+const cat = require('./cat.js');
 //Output a prompt
 process.stdout.write('prompt > ');
 
@@ -12,5 +13,8 @@ process.stdin.on('data', data => {
     pwd();
   } else if (cmd === 'ls') {
     ls();
+  } else if (cmd.slice(0, 4) === 'cat ') {
+    let fn = cmd.slice(4);
+    cat(fn);
   }
 });
